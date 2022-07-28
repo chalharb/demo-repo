@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: chalharb/standards-bot@1.0.0
+      - uses: chalharb/standards-bot@v1.0.0
         name: 'Validate PR Title and Commit Messages'
         with:
           pr-title-regex: 'AB#[0-9]{4,5}:\s[A-Z]{1}'
