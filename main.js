@@ -11,3 +11,5 @@ const titleCase = (str) => {
 }
 
 console.log(titleCase('this will be converted to titlecase'));
+
+console.log("introducing bad commit message");
