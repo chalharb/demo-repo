@@ -1,0 +1,23 @@
+name: 'pull-request'
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: chalharb/standards-bot@1.0.0
+        name: 'Validate PR Title and Commit Messages'
+        with:
+          pr-title-regex: 'AB#[0-9]{4,5}:\s[A-Z]{1}'
+          pr-title-prefix: 'AB#'
+          pr-title-min-length: 10
+          pr-title-max-length: 70
+          commit-message-regex: 'AB#[0-9]{4,5}:\s[A-Z]{1}'
+          commit-message-prefix: 'AB#'
+          commit-message-min-length: 10
+          commit-message-max-length: 70
+          github-token: ${{ secrets.GH_TOKEN }}
